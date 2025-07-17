@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { auth } from "../lib/firebase";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "./Layout/Navbar";
 import Footer from "./Layout/Footer";
 import { signOut } from "firebase/auth";
+// import { useAuth } from "./Auth/AuthContext";
+
 
 const Profile = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  // const { isAdmin } = useAuth();
+
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
@@ -51,6 +55,15 @@ const Profile = () => {
                   View Orders
                 </button>
               </Link>
+
+              {/* {isAdmin && (
+                <Link to="/allorders">
+                  <button className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 mt-2">
+                    Admin
+                  </button>
+                </Link>
+              )} */}
+
 
               <button
                 onClick={handleLogout}

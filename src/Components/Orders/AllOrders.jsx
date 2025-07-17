@@ -62,7 +62,8 @@ const AllOrders = () => {
       <Navbar />
 
       <div className="max-w-5xl mx-auto p-6">
-      <div className='flex justify-between mb-10'>
+      {/* <div className='flex justify-between mb-10'> */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
         <h2 className="text-3xl font-bold mb-6">Your Orders</h2>
         <button
           onClick={() => setShowAddProductModal(true)}
@@ -78,39 +79,6 @@ const AllOrders = () => {
         ) : orders.length === 0 ? (
           <p>No orders found.</p>
         ) : (
-          // <div className="space-y-6">
-          //   {orders.map((order) => (
-          //     <div
-          //       key={order._id}
-          //       className="flex flex-col md:flex-row items-start md:items-center justify-between border rounded-lg p-4 bg-white shadow-sm"
-          //     >
-          //       <div className="flex items-start md:items-center space-x-4 mb-4 md:mb-0">
-          //         <img
-          //           src={order.products[0]?.image || '/placeholder.jpg'}
-          //           alt={order.products[0]?.name}
-          //           className="w-24 h-24 object-cover rounded"
-          //         />
-          //         <div>
-          //           <h3 className="text-lg font-semibold mb-1">{order.address?.fullName || "Customer"}</h3>
-          //           <p className="text-gray-600 max-w-lg">
-          //             {order.products.map(p => p.name).join(', ')}
-          //           </p>
-          //           <p className="text-gray-600 mt-1">Qty: {order.products.reduce((sum, p) => sum + p.quantity, 0)}</p>
-          //         </div>
-          //       </div>
-          //       <button
-          //         onClick={() => setSelectedOrder(order)}
-          //         className="text-red-600 font-medium hover:underline"
-          //       >
-          //         View Details
-          //       </button>
-          //     <DeleteOrderButton/>
-
-          //     </div>
-
-          //   ))}
-
-          // </div>
           <div className="space-y-6">
   {orders.map((order) => (
     <div
@@ -158,10 +126,12 @@ const AllOrders = () => {
       </div>
 
       {/* Modal */}
-   
-        {/* {selectedOrder && (
-  <div className="fixed inset-0 bg-[#000000d0] bg-opacity-50 flex items-center justify-center z-50">
-    <div className="bg-white rounded-lg max-w-2xl w-full p-6 relative">
+
+
+      {selectedOrder && (
+  <div className="fixed inset-0 bg-[#000000d0] bg-opacity-50 flex items-center justify-center z-50 p-4 sm:p-6">
+    <div className="bg-white rounded-lg w-full max-w-2xl p-4 sm:p-6 relative max-h-[90vh] overflow-y-auto">
+      {/* Close button */}
       <button
         onClick={() => setSelectedOrder(null)}
         className="absolute top-4 right-4 text-gray-500 hover:text-black text-xl"
@@ -169,122 +139,76 @@ const AllOrders = () => {
         &times;
       </button>
 
-      <h3 className="text-2xl font-semibold mb-4">Order Details</h3>
+      {/* Header */}
+      <h3 className="text-xl sm:text-2xl font-semibold mb-4">Order Details</h3>
 
-<div className="space-y-4 max-h-96 overflow-y-auto pr-2">
+      {/* Products */}
+      <div className="space-y-4">
         {selectedOrder.products.map((product, index) => (
-          <div key={index} className="flex items-center space-x-4 border rounded p-3 shadow-sm">
+          <div
+            key={index}
+            className="flex flex-col sm:flex-row sm:items-center gap-4 border rounded p-3 shadow-sm"
+          >
             <img
               src={product.image || '/placeholder.jpg'}
               alt={product.name}
-              className="w-20 h-20 object-cover rounded"
+              className="w-full sm:w-20 h-20 object-cover rounded hidden sm:block"
             />
             <div className="flex-1">
               <p className="font-medium text-gray-800">
                 {product.quantity} x {product.name}
               </p>
-          
             </div>
           </div>
         ))}
       </div>
 
+      {/* Total Price */}
       <div className="mt-4 text-right text-lg font-semibold">
         Total Price: Rp {selectedOrder.totalPrice?.toFixed(2) || "N/A"}
       </div>
 
+      {/* Customer Details */}
       <div className="mt-6 border-t pt-4">
-        <h4 className="text-lg font-semibold mb-2">Customer Details</h4>
-        <p><strong>Full Name:</strong> {selectedOrder.address?.fullName || "N/A"}</p>
-        <p><strong>Email:</strong> {selectedOrder.address?.email || "N/A"}</p>
-        <p><strong>Phone:</strong> {selectedOrder.address?.phone || "N/A"}</p>
-        <p className="mt-2">
-          <strong>Address:</strong> {selectedOrder.address?.street}, {selectedOrder.address?.city}, {selectedOrder.address?.state}, {selectedOrder.address?.postalCode}, {selectedOrder.address?.country}
-        </p>
+        <h4 className="text-lg mb-4">Customer Details</h4>
+
+        {/* Row: Full Name, Email, Phone */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+          <div>
+            <p className="text-sm text-gray-500 font-medium">Full Name</p>
+            <p className="text-base font-semibold">
+              {selectedOrder.address?.fullName || "N/A"}
+            </p>
+          </div>
+          <div>
+            <p className="text-sm text-gray-500 font-medium">Email</p>
+            <p className="text-base font-semibold">
+              {selectedOrder.address?.email || "N/A"}
+            </p>
+          </div>
+          <div>
+            <p className="text-sm text-gray-500 font-medium">Phone</p>
+            <p className="text-base font-semibold">
+              {selectedOrder.address?.phone || "N/A"}
+            </p>
+          </div>
+        </div>
+
+        {/* Address Block */}
+        <div>
+          <p className="text-sm text-gray-500 font-medium mb-1">Address</p>
+          <p className="text-base text-gray-800 leading-relaxed">
+            {selectedOrder.address?.street}, {selectedOrder.address?.city},{' '}
+            {selectedOrder.address?.state}, {selectedOrder.address?.postalCode},{' '}
+            {selectedOrder.address?.country}
+          </p>
+        </div>
       </div>
     </div>
   </div>
-)} */}
-      {selectedOrder && (
-        <div className="fixed inset-0 bg-[#000000d0] bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg max-w-2xl w-full p-6 relative">
-            {/* Close button */}
-            <button
-              onClick={() => setSelectedOrder(null)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-black text-xl"
-            >
-              &times;
-            </button>
+)}
 
-            {/* Header */}
-            <h3 className="text-2xl font-semibold mb-4">Order Details</h3>
-          
-
-            {/* Products */}
-            <div className="space-y-4 max-h-96 overflow-y-auto pr-2">
-              {selectedOrder.products.map((product, index) => (
-                <div
-                  key={index}
-                  className="flex items-center space-x-4 border rounded p-3 shadow-sm"
-                >
-                  <img
-                    src={product.image || '/placeholder.jpg'}
-                    alt={product.name}
-                    className="w-20 h-20 object-cover rounded"
-                  />
-                  <div className="flex-1">
-                    <p className="font-medium text-gray-800">
-                      {product.quantity} x {product.name}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Total Price */}
-            <div className="mt-4 text-right text-lg font-semibold">
-              Total Price: Rp {selectedOrder.totalPrice?.toFixed(2) || "N/A"}
-            </div>
-
-            {/* Customer Details */}
-            <div className="mt-6 border-t pt-4">
-              <h4 className="text-lg  mb-4">Customer Details</h4>
-
-              {/* Row for Full Name, Email, Phone */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                <div>
-                  <p className="text-sm text-gray-500 font-medium">Full Name</p>
-                  <p className="text-base font-semibold">
-                    {selectedOrder.address?.fullName || "N/A"}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 font-medium">Email</p>
-                  <p className="text-base font-semibold">
-                    {selectedOrder.address?.email || "N/A"}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 font-medium">Phone</p>
-                  <p className="text-base font-semibold">
-                    {selectedOrder.address?.phone || "N/A"}
-                  </p>
-                </div>
-              </div>
-
-              {/* Address block */}
-              <div>
-                <p className="text-sm text-gray-500 font-medium mb-1">Address</p>
-                <p className="text-base font-normal text-gray-800 leading-relaxed">
-                  {selectedOrder.address?.street}, {selectedOrder.address?.city},{' '}
-                  {selectedOrder.address?.state}, {selectedOrder.address?.postalCode},{' '}
-                  {selectedOrder.address?.country}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      
       {showAddProductModal && (
         <div className="fixed inset-0 bg-[#000000c6] bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg w-full max-w-2xl relative">
@@ -298,10 +222,6 @@ const AllOrders = () => {
           </div>
         </div>
       )}
-
-
-
-
       <Footer />
     </>
   );

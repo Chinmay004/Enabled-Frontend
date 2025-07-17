@@ -1,21 +1,18 @@
 
 
-// import React, { useState } from "react";
-// import { NavLink, useNavigate } from "react-router-dom";
+// import  { useState } from "react";
+// import { Link, NavLink, useNavigate } from "react-router-dom";
 // import { useAuth } from "../Auth/AuthContext";
-// import { signOut } from "firebase/auth";
-// import { auth } from "../../lib/firebase";
-// import { Menu, X } from "lucide-react"; // You can use any icon library
+// import { Menu, X } from "lucide-react";
+// import { FaUserCircle } from "react-icons/fa"; // 👈 User Icon
+// // import { useAuth } from "./Auth/AuthContext";
 
 // const Navbar = () => {
 //   const { user } = useAuth();
 //   const navigate = useNavigate();
 //   const [menuOpen, setMenuOpen] = useState(false);
+//   const { isAdmin } = useAuth();
 
-//   const handleLogout = async () => {
-//     await signOut(auth);
-//     navigate("/");
-//   };
 
 //   const toggleMenu = () => {
 //     setMenuOpen(!menuOpen);
@@ -32,13 +29,27 @@
 //         <div className="hidden md:flex gap-6 items-center">
 //           <NavLink to="/products" className="hover:underline">Impact Shop</NavLink>
 //           <NavLink to="/cart" className="hover:underline">Cart</NavLink>
+          
 //           {user ? (
-//             <button
-//               onClick={handleLogout}
-//               className="bg-white text-[#F0312F] px-4 py-2 rounded hover:bg-gray-200 transition"
+//            <div className="flex items-center gap-4">
+//             <NavLink
+//               to="/profile"
+//               className="flex items-center gap-2 text-white hover:scale-105 transition-transform"
 //             >
-//               Logout
-//             </button>
+//               <FaUserCircle size={28} />
+//               <span>Profile</span>
+//             </NavLink>
+
+//             {isAdmin && (
+//               <NavLink
+//                 to="/allorders"
+//                 className="bg-[#F0312F] border px-3 py-1 rounded hover:bg-red-900 transition text-white text-sm"
+//               >
+//                 Admin
+//               </NavLink>
+//             )}
+//           </div>
+
 //           ) : (
 //             <button
 //               onClick={() => navigate("/login")}
@@ -60,16 +71,16 @@
 //         <div className="md:hidden bg-[#F0312F] px-4 py-2 flex flex-col gap-3 text-base">
 //           <NavLink to="/products" onClick={() => setMenuOpen(false)}>Impact Shop</NavLink>
 //           <NavLink to="/cart" onClick={() => setMenuOpen(false)}>Cart</NavLink>
+
 //           {user ? (
-//             <button
-//               onClick={() => {
-//                 handleLogout();
-//                 setMenuOpen(false);
-//               }}
-//               className="bg-white text-[#F0312F] px-4 py-2 rounded hover:bg-gray-200 transition"
+//             <NavLink
+//               to="/profile"
+//               onClick={() => setMenuOpen(false)}
+//               className="flex items-center gap-2 bg-white text-[#F0312F] px-4 py-2 rounded hover:bg-gray-200 transition"
 //             >
-//               Logout
-//             </button>
+//               <FaUserCircle size={20} />
+//               Profile
+//             </NavLink>
 //           ) : (
 //             <button
 //               onClick={() => {
@@ -89,20 +100,20 @@
 
 // export default Navbar;
 
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+
+import { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/AuthContext";
 import { Menu, X } from "lucide-react";
-import { FaUserCircle } from "react-icons/fa"; // 👈 User Icon
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <nav className="w-full bg-[#F0312F] text-white font-inter shadow-md">
@@ -115,11 +126,26 @@ const Navbar = () => {
         <div className="hidden md:flex gap-6 items-center">
           <NavLink to="/products" className="hover:underline">Impact Shop</NavLink>
           <NavLink to="/cart" className="hover:underline">Cart</NavLink>
-          
+
           {user ? (
-            <NavLink to="/profile" className="text-white hover:scale-105 transition-transform">
-              <FaUserCircle size={28} />
-            </NavLink>
+            <div className="flex items-center gap-4">
+              <NavLink
+                to="/profile"
+                className="flex items-center gap-2 hover:scale-105 transition-transform"
+              >
+                <FaUserCircle size={24} />
+                <span>Profile</span>
+              </NavLink>
+
+              {isAdmin && (
+                <NavLink
+                  to="/allorders"
+                  className="bg-white text-[#F0312F] px-3 py-1 rounded hover:bg-red-100 transition text-sm"
+                >
+                  Admin
+                </NavLink>
+              )}
+            </div>
           ) : (
             <button
               onClick={() => navigate("/login")}
@@ -138,24 +164,40 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#F0312F] px-4 py-2 flex flex-col gap-3 text-base">
-          <NavLink to="/products" onClick={() => setMenuOpen(false)}>Impact Shop</NavLink>
-          <NavLink to="/cart" onClick={() => setMenuOpen(false)}>Cart</NavLink>
+        <div className="md:hidden px-4 pb-4 flex flex-col gap-3 text-base bg-[#F0312F]">
+          <NavLink to="/products" onClick={closeMenu} className="hover:underline">
+            Impact Shop
+          </NavLink>
+          <NavLink to="/cart" onClick={closeMenu} className="hover:underline">
+            Cart
+          </NavLink>
 
           {user ? (
-            <NavLink
-              to="/profile"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center gap-2 bg-white text-[#F0312F] px-4 py-2 rounded hover:bg-gray-200 transition"
-            >
-              <FaUserCircle size={20} />
-              Profile
-            </NavLink>
+            <>
+              <NavLink
+                to="/profile"
+                onClick={closeMenu}
+                className="flex items-center gap-2 bg-white text-[#F0312F] px-4 py-2 rounded hover:bg-gray-200 transition"
+              >
+                <FaUserCircle size={20} />
+                Profile
+              </NavLink>
+
+              {isAdmin && (
+                <NavLink
+                  to="/allorders"
+                  onClick={closeMenu}
+                  className="bg-white text-[#F0312F] px-4 py-2 rounded hover:bg-gray-200 transition"
+                >
+                  Admin
+                </NavLink>
+              )}
+            </>
           ) : (
             <button
               onClick={() => {
                 navigate("/login");
-                setMenuOpen(false);
+                closeMenu();
               }}
               className="bg-white text-[#F0312F] px-4 py-2 rounded hover:bg-gray-200 transition"
             >
