@@ -5,7 +5,7 @@ import Navbar from '../Layout/Navbar';
 import Footer from '../Layout/Footer';
 import ProductCard from '../Product/ProductCard';
 import { getProducts } from '../../api';
-import AddToCartButton from '../../AddToCartButton';
+import AddToCartButton from '../AddToCartButton';
 import { auth } from '../../lib/firebase';
 import { Link } from 'react-router-dom';
 
@@ -46,6 +46,21 @@ const fetchAndFilterProducts = async () => {
   return (
     <div className="flex flex-col min-h-screen font-inter">
       <Navbar />
+     {/* <button
+        onClick={async () => {
+          if (auth.currentUser) {
+            const token = await auth.currentUser.getIdToken();
+            console.log("Firebase ID Token:", token);
+            alert("Token logged to console");
+          } else {
+            alert("No user is currently signed in.");
+          }
+        }}
+        className="w-full bg-gray-600 text-white p-2 rounded hover:bg-gray-800 mt-4"
+      >
+        🔐 Log ID Token (for Postman)
+      </button> */}
+
 
       {/* Hero Section */}
       <div className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#fafafa] px-4 sm:px-6 md:px-10 lg:px-20 lg:min-h-[calc(100vh-235px)] pt-10 ">
@@ -53,8 +68,8 @@ const fetchAndFilterProducts = async () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             KUAT BERSAMA ENABLED.
           </h1>
-          <p className="text-gray-700 text-sm sm:text-base text-justify p-4 ">
-            Enabled. was established in November 2021, just four months after the passing of Amadea, known as "The Tracheostomy Princess," as a tribute to her legacy. The organization serves as a platform to support bereaved parents and families of children with special needs.
+          <p className="  text-sm sm:text-base text-justify p-4 ">
+          Enabled. is a non-profit foundation dedicated to supporting Indonesian pediatric tracheostomy patients through medical donations, advocacy, and heartfelt collaboration. Founded in memory of Amadea Jasmine Soetama, “The Tracheostomy Princess,” we work with families, doctors, and professionals to ensure every child receives the care they deserve. Through the redistribution of surplus supplies and community-driven support, we help these children not only survive—but thrive
           </p>
         </div>
         <div className="w-full sm:w-[300px] md:w-[360px] lg:w-[600px]  pb-10 lg:pb-0 xl:-mb-4 ">
@@ -100,12 +115,12 @@ const fetchAndFilterProducts = async () => {
 
         <div className="md:w-1/2 text-justify">
          
-          <p className="text-gray-700 text-sm sm:text-base">
-            Enabled. was established in November 2021, just four months after the passing of Amadea, known as "The Tracheostomy Princess," as a tribute to her legacy. The organization serves as a platform to support bereaved parents and families of children with special needs. Its full name, Yayasan Kuat Bersama Enabled., carries a profound significance. "KUAT" is an acronym for Kolaborasi Untuk Anak Trakeostomi, which translates to "Collaboration for Tracheostomy Children" in Indonesian. This name encapsulates Enabled.'s mission: fostering teamwork among individuals from diverse backgrounds and disciplines who are dedicated to improving the lives of special needs children, particularly pediatric tracheostomy patients.
+          <p className=" text-sm sm:text-base">
+          Enabled. was founded in November 2021, four months after our angel, Amadea Jasmine Soetama, moved to a better place. Since then, Enabled. has worked with people across disciplines—from doctors to border professionals—to ensure Indonesian pediatric tracheostomy patients receive the care they deserve. Thus, we named our foundation Yayasan Kuat Bersama Enabled.—KUAT as both a symbol of the strength of Indonesian pediatric tracheostomy children and an abbreviation of Kolaborasi Untuk Anak Trakeostomi. Through heartfelt collaboration, we help these children live life to the fullest. We focus donations on purchasing tracheostomy tubes and redistributing surplus medical supplies from families in privileged settings or those grieving a loss. Beyond this, we run various initiatives to support Indonesia’s broader special needs community. We believe these children fight with all they have to survive—now it’s our turn to give our all to help them thrive.
           </p>
         </div>
         <div className="lg:w-1/2 flex justify-center">
-          <img src="/smilingboy.jpg" alt="About Us" className="w-full max-w-[350px] rounded shadow" />
+          <img src="/RealGirl.jpg" alt="About Us" className="w-full max-w-[350px] rounded shadow" />
         </div>
       </div>
       </section>

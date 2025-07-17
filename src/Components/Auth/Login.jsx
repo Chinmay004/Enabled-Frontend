@@ -45,6 +45,25 @@ const Login = () => {
     resolver: zodResolver(loginSchema),
   });
 
+  const TokenFetcher = () => {
+  useEffect(() => {
+    const fetchToken = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        const token = await user.getIdToken();
+        console.log("ID TOKEN:", token);
+      } else {
+        console.log("No user is logged in.");
+      }
+    };
+
+    fetchToken();
+  }, []);
+
+  return null; // no UI
+};
+
+
   const handleLogin = async (data) => {
     setError("");
     setLoading(true);
@@ -93,7 +112,7 @@ const Login = () => {
 
   const sendTokenToServer = async (idToken) => {
     try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/sync`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -115,6 +134,7 @@ const Login = () => {
   return (
     <>
       <Navbar />
+      <TokenFetcher />
       <div className="flex justify-center items-center min-h-[calc(100vh-200px)]">
         <div className="w-full max-w-sm p-6 border border-gray-300 rounded-lg bg-white sm:shadow-sm ">
           <h2 className="text-center text-2xl font-semibold mb-6">Log In</h2>

@@ -1,7 +1,8 @@
 
 
-import React, { useState } from 'react';
-import { addProduct } from '../../api'; // ✅ Make sure this function handles the axios POST
+
+import  { useState } from 'react';
+import { addProduct } from '../../api';
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({
@@ -39,9 +40,7 @@ const AddProduct = () => {
 
     try {
       setUploading(true);
-      console.log("Submitting product:", form);
-
-      await addProduct(form); // ✅ Use API wrapper
+      await addProduct(form);
       alert('Product added!');
       setFormData({
         name: '',
@@ -60,67 +59,90 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-4 shadow-lg rounded-lg bg-white">
-      <h2 className="text-2xl font-bold mb-4">Add New Product</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          name="name"
-          placeholder="Name"
-          onChange={handleChange}
-          value={formData.name}
-          required
-          className="w-full p-2 border rounded"
-        />
-        <input
-          name="price"
-          type="number"
-          placeholder="Price"
-          onChange={handleChange}
-          value={formData.price}
-          required
-          className="w-full p-2 border rounded"
-        />
+    <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+      <h2 className="text-xl font-semibold mb-6">Add a New Product</h2>
+      <form onSubmit={handleSubmit} className="space-y-5">
+        {/* Product Name + Stock */}
+        <div className="flex gap-4">
+          <input
+            name="name"
+            placeholder="Product Name"
+            onChange={handleChange}
+            value={formData.name}
+            required
+            className="w-1/2 p-3 border border-gray-300 rounded-md"
+          />
+          <input
+            name="countInStock"
+            type="number"
+            placeholder="Available Quantity"
+            onChange={handleChange}
+            value={formData.countInStock}
+            className="w-1/2 p-3 border border-gray-300 rounded-md"
+          />
+        </div>
+
+            <div 
+        className=" flex gap-5"
+        >
+          <input
+            name="price"
+            type="number"
+            placeholder="Price"
+            onChange={handleChange}
+            value={formData.price}
+            className="w-1/3 p-3 border border-gray-300 rounded-md"
+          />
+          <input
+            name="category"
+            placeholder="Category"
+            onChange={handleChange}
+            value={formData.category}
+            className="w-1/3 p-3 border border-gray-300 rounded-md"
+          />
+          <input
+            name="yearlyLimitPerUser"
+            type="number"
+            placeholder="Yearly Limit"
+            onChange={handleChange}
+            value={formData.yearlyLimitPerUser}
+            className="w-1/3 p-3 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Description */}
         <textarea
           name="description"
           placeholder="Description"
           onChange={handleChange}
           value={formData.description}
-          className="w-full p-2 border rounded"
+          className="w-full p-3 border border-gray-300 rounded-md resize-none"
+          rows={3}
         />
-        <input
-          name="category"
-          placeholder="Category"
-          onChange={handleChange}
-          value={formData.category}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          name="countInStock"
-          type="number"
-          placeholder="Stock"
-          onChange={handleChange}
-          value={formData.countInStock}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          name="yearlyLimitPerUser"
-          type="number"
-          placeholder="Yearly Limit"
-          onChange={handleChange}
-          value={formData.yearlyLimitPerUser}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          required
-          className="w-full p-2 border rounded"
-        />
+
+        {/* File Upload */}
+        <label
+          htmlFor="file-upload"
+          className="block w-full border-2 border-dashed border-gray-300 p-6 rounded-md text-center cursor-pointer"
+        >
+          <div className="text-gray-600">Upload Images in PNG JPEG</div>
+          <input
+            id="file-upload"
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="hidden"
+            required
+          />
+        </label>
+
+        {/* Hidden fields still available for backend but not shown visually per Figma */}
+    
+
         <button
           type="submit"
           disabled={uploading}
-          className="bg-blue-600 text-white py-2 px-4 rounded w-full"
+          className="bg-[#f0312f] hover:bg-[#d72a29] transition text-white py-3 px-6 rounded-md w-full"
         >
           {uploading ? 'Uploading...' : 'Add Product'}
         </button>
@@ -130,3 +152,4 @@ const AddProduct = () => {
 };
 
 export default AddProduct;
+

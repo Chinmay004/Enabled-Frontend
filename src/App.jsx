@@ -12,6 +12,9 @@ import Billing from "./Components/Billing/Billing";
 import OrderPage from "./Components/Orders/OrderPage";
 import Logout from "./Components/Auth/Logout";
 import Verify from "./Components/Verify";
+import Profile from "./Components/Profile";
+import AdminRoute from "./Components/AdminRoute";
+import AllOrders from "./Components/Orders/AllOrders";
 
 function App() {
   return (
@@ -24,14 +27,14 @@ function App() {
         <Route path="/verify" element={<Verify />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/logout" element={<PrivateRoute><Logout/></PrivateRoute>} />
-
-
-        <Route path="/addProduct" element={<AddProduct/>} />
+        <Route path="/addProduct" element={<AdminRoute><AddProduct/> </AdminRoute>} />
         <Route path="/productDetails/:id" element={<ProductDetails />} />
-        {/* <Route path="/recipes2" element={<PrivateRoute><RecipeList2 /></PrivateRoute>} /> */}
+        {/* <Route path="/srecipes2" element={<PrivateRoute><RecipeList2 /></PrivateRoute>} /> */}
         <Route path="/cart" element={<PrivateRoute><CartPage/></PrivateRoute>} />
         <Route path="/billing" element={<PrivateRoute><Billing/></PrivateRoute>} />
         <Route path="/orders" element={<PrivateRoute><OrderPage/></PrivateRoute>} />
+        <Route path="/profile" element={<PrivateRoute><Profile/></PrivateRoute>} />
+        <Route path="/allorders" element={<AllOrders />} />
       </Routes>
     </Router>
   );

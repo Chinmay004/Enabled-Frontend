@@ -32,6 +32,7 @@ const BillingForm = ({ userId }) => {
     const address = {
       fullName: formData.fullName,
       phone: formData.phone,
+      email:formData.email,
       street: `${formData.apartment ? formData.apartment + ", " : ""}${formData.street}`,
       city: formData.city,
       state: formData.state,
