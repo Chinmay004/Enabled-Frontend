@@ -33,7 +33,7 @@ function App() {
         <Route path="/cart" element={<PrivateRoute><CartPage/></PrivateRoute>} />
         <Route path="/billing" element={<PrivateRoute><Billing/></PrivateRoute>} />
         <Route path="/orders" element={<PrivateRoute><OrderPage/></PrivateRoute>} />
-        <Route path="/profile" element={<PrivateRoute><Profile/></PrivateRoute>} />
+        <Route path="/profile" element={<Profile/>} />
         <Route path="/allorders" element={<AllOrders />} />
       </Routes>
     </Router>
