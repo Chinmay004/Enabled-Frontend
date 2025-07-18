@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom';
 import { auth } from '../lib/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import PropTypes from 'prop-types';
-import Verify from './Verify';
+// import Verify from './Verify';
 const PrivateRoute = ({ children }) => {
   const [user, loading] = useAuthState(auth);
 
@@ -11,9 +11,9 @@ const PrivateRoute = ({ children }) => {
   }
 
   // If user is logged in but email is not verified
-  if (user && !user.emailVerified) {
-    return <Navigate to="/verify" />;
-  }
+  // if (user && !user.emailVerified) {
+  //   return <Navigate to="/verify" />;
+  // }
 
   // If user is logged in and verified
   if (user) {

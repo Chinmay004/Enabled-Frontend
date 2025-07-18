@@ -43,9 +43,26 @@ export const AuthProvider = ({ children }) => {
       setUser(user || null);
 
       if (user) {
+        // try {
+        //   const token = await user.getIdToken();
+        //   const res = await fetch(`${import.meta.env.VITE_API_URL}/api/admin/is-admin`, {
+        //     headers: {
+        //       Authorization: `Bearer ${token}`,
+        //     },
+        //   });
+
         try {
           const token = await user.getIdToken();
-          const res = await fetch(`${import.meta.env.VITE_API_URL}/api/admin/is-admin`, {
+
+          const apiUrl = import.meta.env.VITE_API_URL;
+          const fullUrl = `${apiUrl}/api/admin/is-admin`;
+
+          // Debug logs
+          console.log("✅ User detected:", user.email);
+          console.log("🔐 Token:", token.substring(0, 20) + "...");
+          console.log("🌐 Hitting URL:", fullUrl);
+
+          const res = await fetch(fullUrl, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -53,8 +70,10 @@ export const AuthProvider = ({ children }) => {
 
           if (res.ok) {
             const data = await res.json();
+            console.log("✅ Admin response:", data);
             setIsAdmin(data.isAdmin || false);
           } else {
+            console.error("❌ Admin check failed with status:", res.status);
             setIsAdmin(false);
           }
         } catch (error) {
@@ -62,6 +81,7 @@ export const AuthProvider = ({ children }) => {
           setIsAdmin(false);
         }
       } else {
+        console.log("👤 No user signed in");
         setIsAdmin(false);
       }
 

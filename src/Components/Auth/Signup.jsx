@@ -40,26 +40,30 @@ const Signup = () => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
+      const refreshedUser = auth.currentUser
+      const idToken = await refreshedUser.getIdToken();
+          await sendDataToServer(refreshedUser, idToken, name);
+          // toast.success("Email verified successfully!");
   
       await sendEmailVerification(user);
       setMessage("Verification email sent. Please check your inbox.");
       setIsVerifying(true);
   
-      const checkVerification = setInterval(async () => {
-        await user.reload(); // Reload user from Firebase to get latest verification status
-        const refreshedUser = auth.currentUser;
+      // const checkVerification = setInterval(async () => {
+      //   await user.reload(); // Reload user from Firebase to get latest verification status
+      //   const refreshedUser = auth.currentUser;
   
-        if (refreshedUser && refreshedUser.emailVerified) {
-          clearInterval(checkVerification);
-          const idToken = await refreshedUser.getIdToken();
-          await sendDataToServer(refreshedUser, idToken, name);
-          toast.success("Email verified successfully!");
-          setIsVerifying(false);
-          setTimeout(() => {
-            navigate("/");
-          }, 3000);  // ✅ Redirect to home after email verified
-        }
-      }, 3000); // ⏱️ Check every 3 seconds
+      //   if (refreshedUser && refreshedUser.emailVerified) {
+      //     clearInterval(checkVerification);
+      //     const idToken = await refreshedUser.getIdToken();
+      //     await sendDataToServer(refreshedUser, idToken, name);
+      //     toast.success("Email verified successfully!");
+      //     setIsVerifying(false);
+      //     setTimeout(() => {
+      //       navigate("/");
+      //     }, 3000);  // ✅ Redirect to home after email verified
+      //   }
+      // }, 3000); // ⏱️ Check every 3 seconds
     } catch (err) {
       setError(err.message);
     }
