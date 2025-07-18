@@ -71,11 +71,11 @@ const Login = () => {
       const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
       const user = userCredential.user;
 
-      if (!user.emailVerified) {
-        await signOut(auth);
-        setError("Please verify your email before logging in.");
-        return;
-      }
+      // if (!user.emailVerified) {
+      //   await signOut(auth);
+      //   setError("Please verify your email before logging in.");
+      //   return;
+      // }
 
       const idToken = await user.getIdToken();
       setJustLoggedIn(true);
@@ -94,11 +94,11 @@ const Login = () => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      if (!user.emailVerified) {
-        await signOut(auth);
-        setError("Your Google account email is not verified.");
-        return;
-      }
+      // if (!user.emailVerified) {
+      //   await signOut(auth);
+      //   setError("Your Google account email is not verified.");
+      //   return;
+      // }
 
       const idToken = await user.getIdToken();
       setJustLoggedIn(true);
