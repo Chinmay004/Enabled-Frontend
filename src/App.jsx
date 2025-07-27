@@ -15,6 +15,7 @@ import Verify from "./Components/Verify";
 import Profile from "./Components/Profile";
 import AdminRoute from "./Components/AdminRoute";
 import AllOrders from "./Components/Orders/AllOrders";
+import EditProducts from "./Components/Product/EditProducts";
 
 function App() {
   return (
@@ -23,17 +24,18 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/productDetails" element={<PrivateRoute><ProductDetails /></PrivateRoute>} />
-        <Route path="/signUp" element={<Signup/>} />
+        <Route path="/signUp" element={<Signup />} />
         <Route path="/verify" element={<Verify />} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/logout" element={<PrivateRoute><Logout/></PrivateRoute>} />
-        <Route path="/addProduct" element={<AdminRoute><AddProduct/> </AdminRoute>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<PrivateRoute><Logout /></PrivateRoute>} />
+        <Route path="/addProduct" element={<AdminRoute><AddProduct /> </AdminRoute>} />
         <Route path="/productDetails/:id" element={<ProductDetails />} />
+        <Route path="/edit-products" element={<AdminRoute><EditProducts /></AdminRoute>} />
         {/* <Route path="/srecipes2" element={<PrivateRoute><RecipeList2 /></PrivateRoute>} /> */}
-        <Route path="/cart" element={<PrivateRoute><CartPage/></PrivateRoute>} />
-        <Route path="/billing" element={<PrivateRoute><Billing/></PrivateRoute>} />
-        <Route path="/orders" element={<PrivateRoute><OrderPage/></PrivateRoute>} />
-        <Route path="/profile" element={<Profile/>} />
+        <Route path="/cart" element={<PrivateRoute><CartPage /></PrivateRoute>} />
+        <Route path="/billing" element={<PrivateRoute><Billing /></PrivateRoute>} />
+        <Route path="/orders" element={<PrivateRoute><OrderPage /></PrivateRoute>} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/allorders" element={<AllOrders />} />
       </Routes>
     </Router>

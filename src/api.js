@@ -9,7 +9,7 @@ export const addProduct = async (formData) => {
     });
     return response.data;
   } catch (err) {
-    throw new Error('Failed to add product',err);
+    throw new Error('Failed to add product', err);
   }
 };
 
@@ -19,7 +19,7 @@ export const getProducts = async () => {
     const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/products`);
     return response.data;
   } catch (err) {
-    throw new Error('Failed to fetch products',err);
+    throw new Error('Failed to fetch products', err);
   }
 };
 
@@ -28,7 +28,7 @@ export const getProductById = async (id) => {
     const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/${id}`);
     return response.data;
   } catch (err) {
-    throw new Error('Failed to fetch product details',err);
+    throw new Error('Failed to fetch product details', err);
   }
 };
 
@@ -39,17 +39,17 @@ export const getRelatedProducts = async (category, excludeId) => {
     });
     return response.data;
   } catch (err) {
-    throw new Error("Failed to fetch related products",err);
+    throw new Error("Failed to fetch related products", err);
   }
 };
 
 
 
-export const addToCart = async (idToken, productId, quantity ) => {
+export const addToCart = async (idToken, productId, quantity) => {
   try {
     const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/cart/`, // ✅ Correct endpoint
-      {items: [{ productId, quantity }],},
-      {headers: { Authorization: `Bearer ${idToken}`,},}
+      { items: [{ productId, quantity }], },
+      { headers: { Authorization: `Bearer ${idToken}`, }, }
     );
     return response.data;
   } catch (error) {
@@ -106,11 +106,11 @@ export const checkProductInCart = async (idToken, productId) => {
   const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/cart/check`,
     { productId },
     {
-  // const res = await fetch(`/api/cart/check?productId=${productId}`, {
-    headers: {
-      Authorization: `Bearer ${idToken}`,
-    },
-  });
+      // const res = await fetch(`/api/cart/check?productId=${productId}`, {
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
+    });
 
   // const data = await res.json();
   return res.data.exists;
@@ -134,14 +134,14 @@ export const checkYearlyLimit = async (idToken, productId) => {
   return res.json(); // { allowed: true }
 };
 
-export const getUserProductPurchaseCount = async (idToken, productId,userId) => {
+export const getUserProductPurchaseCount = async (idToken, productId, userId) => {
   const res = await fetch(`${import.meta.env.VITE_API_URL}/api/cart/purchase-count`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${idToken}`,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ productId ,userId})
+    body: JSON.stringify({ productId, userId })
   });
 
   if (!res.ok) {
@@ -151,6 +151,18 @@ export const getUserProductPurchaseCount = async (idToken, productId,userId) => 
 
   const data = await res.json(); // { totalQty: number }
   return data;
+};
+
+// Update a product
+export const updateProduct = async (id, formData) => {
+  try {
+    const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/products/${id}`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return response.data;
+  } catch (err) {
+    throw new Error('Failed to update product', err);
+  }
 };
 
 

@@ -280,10 +280,10 @@ const ProductsPage = () => {
         {isLoading
           ? Array.from({ length: 8 }).map((_, index) => <SkeletonCard key={index} />)
           : isError
-          ? <div className="text-red-500 text-center mt-10">{error?.message || "Failed to load products"}</div>
-          : products.map((product) => (
+            ? <div className="text-red-500 text-center mt-10">{error?.message || "Failed to load products"}</div>
+            : products.map((product) => (
               <div key={product._id} className="flex-col flex gap-3">
-                <ProductCard {...product} />
+                <ProductCard {...product} countInStock={product.countInStock} />
                 {isHydrated && (
                   <AddToCartButton
                     userId={userId}
@@ -292,6 +292,7 @@ const ProductsPage = () => {
                     showGoToCart={false}
                     showCounter={false}
                     widthClass="w-full"
+                    countInStock={product.countInStock}
                   />
                 )}
               </div>

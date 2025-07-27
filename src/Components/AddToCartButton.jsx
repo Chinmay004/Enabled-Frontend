@@ -249,12 +249,15 @@ const AddToCartButton = ({
   showGoToCart = true,
   showCounter = true,
   widthClass = "w-full",
+  countInStock,
 }) => {
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const [limitExceeded, setLimitExceeded] = useState(false);
   const [limit, setLimit] = useState(null);
   const navigate = useNavigate();
+
+  const isOutOfStock = countInStock === 0;
 
   useEffect(() => {
     const checkCartStatus = async () => {
@@ -308,7 +311,7 @@ const AddToCartButton = ({
       }
 
       await addToCart(idToken, productId, quantity);
-      
+
     } catch (err) {
       console.error("Error adding to cart:", err);
     }
@@ -340,14 +343,10 @@ const AddToCartButton = ({
         <>
           <button
             onClick={handleAddToCart}
-            className={`border ${
-              limitExceeded
-                ? "border-gray-400 text-gray-400 cursor-not-allowed"
-                : "border-[#db4444] text-[#db4444] hover:bg-[#db4444] hover:text-white"
-            } py-1 px-3 rounded transition w-full`}
-            disabled={limitExceeded}
+            className="border border-[#db4444] text-[#db4444] py-1 px-3 rounded hover:bg-[#db4444] hover:text-white transition w-full"
+            disabled={isOutOfStock}
           >
-            {limitExceeded ? `Limit Reached (${limit})` : "Add to Cart"}
+            {isOutOfStock ? 'Out of Stock' : 'Add to Cart'}
           </button>
 
           {showCounter && (

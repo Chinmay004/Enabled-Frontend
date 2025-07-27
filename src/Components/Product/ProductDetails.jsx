@@ -235,17 +235,20 @@ const ProductDetails = () => {
             <h1 className="text-2xl sm:text-3xl font-bold">{product.name}</h1>
             <p className="text-gray-700">{product.description || "No description provided."}</p>
             <p className="text-xl text-green-600 font-semibold">{formatRupiah(product.price)}</p>
+            {product.countInStock === 0 && (
+              <div className="text-red-600 font-bold mt-2">Out of Stock</div>
+            )}
             <hr className="mt-5 text-[#7f7f7f]" />
-            {userId && (
-              <div className="w-full mt-4">
+            <div className="w-full mt-4">
+              {userId && product.countInStock !== 0 && (
                 <AddToCartButton
                   userId={userId}
                   productId={product._id}
                   triggerReload={triggerReload}
                   widthClass="w-full sm:w-1/2"
                 />
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>
