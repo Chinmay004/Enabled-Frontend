@@ -8,11 +8,15 @@ import { getProducts } from '../../api';
 import AddToCartButton from '../AddToCartButton';
 import { auth } from '../../lib/firebase';
 import { Link } from 'react-router-dom';
+import SplashScreen from '../SplashScreen';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [userId, setUserId] = useState(null);
   const [refresh, setRefresh] = useState(false);
+  const [showSplash, setShowSplash] = useState(true); // add this
+
 
   const targetIds = [
     '67fec61e36645cdcd33114bd',
@@ -27,26 +31,30 @@ const Hero = () => {
       setUserId(user.uid);
     }
   }, []);
-const fetchAndFilterProducts = async () => {
-      try {
-        const allProducts = await getProducts();
-        const filtered = allProducts.filter((p) => targetIds.includes(p._id));
-        setFeaturedProducts(filtered);
-      } catch (err) {
-        console.error('Failed to fetch products:', err);
-      }
-    };
-    
+  const fetchAndFilterProducts = async () => {
+    try {
+      const allProducts = await getProducts();
+      const filtered = allProducts.filter((p) => targetIds.includes(p._id));
+      setFeaturedProducts(filtered);
+    } catch (err) {
+      console.error('Failed to fetch products:', err);
+    }
+  };
+
   useEffect(() => {
-    
+
 
     fetchAndFilterProducts();
   }, [refresh]);
 
+  if (showSplash) {
+    return <SplashScreen onComplete={() => setShowSplash(false)} />;
+  }
+
   return (
     <div className="flex flex-col min-h-screen font-inter">
       <Navbar />
-     {/* <button
+      {/* <button
         onClick={async () => {
           if (auth.currentUser) {
             const token = await auth.currentUser.getIdToken();
@@ -63,20 +71,43 @@ const fetchAndFilterProducts = async () => {
 
 
       {/* Hero Section */}
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#fafafa] px-4 sm:px-6 md:px-10 lg:px-20 lg:min-h-[calc(100vh-235px)] pt-10 ">
+      {/* <div className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#fafafa] px-4 sm:px-6 md:px-10 lg:px-20 lg:min-h-[calc(100vh-235px)] pt-10 "> */}
+      {/* <div className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#fafafa] px-4 sm:px-6 md:px-10 lg:px-20 lg:min-h-[calc(100vh-235px)] pt-10 animate-slide-in-up">
+
         <div className="max-w-xl  text-center lg:text-left mb-8 lg:mb-0  ">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             KUAT BERSAMA ENABLED.
           </h1>
           <p className="  text-sm sm:text-base text-justify p-4 ">
-          Enabled. is a non-profit foundation dedicated to supporting Indonesian pediatric tracheostomy patients through medical donations, advocacy, and heartfelt collaboration. Founded in memory of Amadea Jasmine Soetama, “The Tracheostomy Princess,” we work with families, doctors, and professionals to ensure every child receives the care they deserve. Through the redistribution of surplus supplies and community-driven support, we help these children not only survive—but thrive
+            Enabled. is a non-profit foundation dedicated to supporting Indonesian pediatric tracheostomy patients through medical donations, advocacy, and heartfelt collaboration. Founded in memory of Amadea Jasmine Soetama, “The Tracheostomy Princess,” we work with families, doctors, and professionals to ensure every child receives the care they deserve. Through the redistribution of surplus supplies and community-driven support, we help these children not only survive—but thrive
           </p>
         </div>
         <div className="w-full sm:w-[300px] md:w-[360px] lg:w-[600px]  pb-10 lg:pb-0 xl:-mb-4 ">
           <img src="/Girly.png" alt="" className="w-full h-auto max-h-[300px] lg:max-h-[800px] object-contain" />
         </div>
-      </div>
-     
+      </div> */}
+
+      <motion.div
+        className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#fafafa] px-4 sm:px-6 md:px-10 lg:px-20 lg:min-h-[calc(100vh-235px)] pt-10"
+        initial={{ x: '100%', opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ type: 'spring', stiffness: 70, damping: 16 }}
+      >
+        <div className="max-w-xl text-center lg:text-left mb-8 lg:mb-0">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            KUAT BERSAMA ENABLED.
+          </h1>
+          <p className="text-sm sm:text-base text-justify p-4">
+            Enabled. is a non-profit foundation dedicated to supporting Indonesian pediatric tracheostomy patients through medical donations, advocacy, and heartfelt collaboration. Founded in memory of Amadea Jasmine Soetama, “The Tracheostomy Princess,” we work with families, doctors, and professionals to ensure every child receives the care they deserve. Through the redistribution of surplus supplies and community-driven support, we help these children not only survive—but thrive
+          </p>
+        </div>
+
+        <div className="w-full sm:w-[300px] md:w-[360px] lg:w-[600px] pb-10 lg:pb-0 xl:-mb-4">
+          <img src="/Girly.png" alt="" className="w-full h-auto max-h-[300px] lg:max-h-[800px] object-contain" />
+        </div>
+      </motion.div>
+
+
 
       {/* Featured Products */}
       <section className="py-8 px-4 sm:px-6 md:px-10 lg:px-20">
@@ -108,21 +139,21 @@ const fetchAndFilterProducts = async () => {
       </section>
 
       {/* About Us */}
-          <section className='bg-[#fafafa]'>
-            <h2 className="text-xl sm:text-2xl font-bold mx-15 mt-15 w-fit  sm:place-self-center md:place-self-start">About Us</h2>
-      <div className="flex flex-col-reverse md:flex-row items-center gap-6 lg:gap-10 px-4 sm:px-6 md:px-10 lg:px-20 py-10 ">
-      
+      <section className='bg-[#fafafa]'>
+        <h2 className="text-xl sm:text-2xl font-bold mx-15 mt-15 w-fit  sm:place-self-center md:place-self-start">About Us</h2>
+        <div className="flex flex-col-reverse md:flex-row items-center gap-6 lg:gap-10 px-4 sm:px-6 md:px-10 lg:px-20 py-10 ">
 
-        <div className="md:w-1/2 text-justify">
-         
-          <p className=" text-sm sm:text-base">
-          Enabled. was founded in November 2021, four months after our angel, Amadea Jasmine Soetama, moved to a better place. Since then, Enabled. has worked with people across disciplines—from doctors to border professionals—to ensure Indonesian pediatric tracheostomy patients receive the care they deserve. Thus, we named our foundation Yayasan Kuat Bersama Enabled.—KUAT as both a symbol of the strength of Indonesian pediatric tracheostomy children and an abbreviation of Kolaborasi Untuk Anak Trakeostomi. Through heartfelt collaboration, we help these children live life to the fullest. We focus donations on purchasing tracheostomy tubes and redistributing surplus medical supplies from families in privileged settings or those grieving a loss. Beyond this, we run various initiatives to support Indonesia’s broader special needs community. We believe these children fight with all they have to survive—now it’s our turn to give our all to help them thrive.
-          </p>
+
+          <div className="md:w-1/2 text-justify">
+
+            <p className=" text-sm sm:text-base">
+              Enabled. was founded in November 2021, four months after our angel, Amadea Jasmine Soetama, moved to a better place. Since then, Enabled. has worked with people across disciplines—from doctors to border professionals—to ensure Indonesian pediatric tracheostomy patients receive the care they deserve. Thus, we named our foundation Yayasan Kuat Bersama Enabled.—KUAT as both a symbol of the strength of Indonesian pediatric tracheostomy children and an abbreviation of Kolaborasi Untuk Anak Trakeostomi. Through heartfelt collaboration, we help these children live life to the fullest. We focus donations on purchasing tracheostomy tubes and redistributing surplus medical supplies from families in privileged settings or those grieving a loss. Beyond this, we run various initiatives to support Indonesia’s broader special needs community. We believe these children fight with all they have to survive—now it’s our turn to give our all to help them thrive.
+            </p>
+          </div>
+          <div className="lg:w-1/2 flex justify-center">
+            <img src="/RealGirl.jpg" alt="About Us" className="w-full max-w-[350px] rounded shadow" />
+          </div>
         </div>
-        <div className="lg:w-1/2 flex justify-center">
-          <img src="/RealGirl.jpg" alt="About Us" className="w-full max-w-[350px] rounded shadow" />
-        </div>
-      </div>
       </section>
 
       <Footer />
