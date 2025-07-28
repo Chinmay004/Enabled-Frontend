@@ -165,5 +165,15 @@ export const updateProduct = async (id, formData) => {
   }
 };
 
+// Delete a product
+export const deleteProduct = async (id) => {
+  try {
+    const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/products/${id}`);
+    return response.data;
+  } catch (err) {
+    throw new Error('Failed to delete product', err);
+  }
+};
+
 
 // Add other API functions like deleteProduct, updateProduct, etc. as needed

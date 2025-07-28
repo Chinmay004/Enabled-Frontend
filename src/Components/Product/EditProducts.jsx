@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { getProducts, updateProduct } from '../../api';
+import { getProducts, updateProduct, deleteProduct } from '../../api';
 import Navbar from '../Layout/Navbar';
 import Footer from '../Layout/Footer';
 
@@ -15,6 +15,7 @@ const EditProducts = () => {
     const [formData, setFormData] = useState({});
     const [imageFile, setImageFile] = useState(null);
     const [uploading, setUploading] = useState(false);
+    const [deletingId, setDeletingId] = useState(null);
     const queryClient = useQueryClient();
 
     const handleEditClick = (product) => {
@@ -67,11 +68,25 @@ const EditProducts = () => {
         setUploading(false);
     };
 
+    const handleDelete = async (id) => {
+        if (!window.confirm('Are you sure you want to delete this product?')) return;
+        setDeletingId(id);
+        try {
+            await deleteProduct(id);
+            await refetch();
+            queryClient.invalidateQueries(['products']);
+            alert('Product deleted!');
+        } catch (err) {
+            alert('Failed to delete product');
+        }
+        setDeletingId(null);
+    };
+
     return (
         <div className="min-h-screen flex flex-col">
             <Navbar />
             <div className="max-w-5xl mx-auto p-6 w-full">
-                <h2 className="text-3xl font-bold mb-8">Edit Products</h2>
+                <h2 className="text-3xl font-bold mb-8">Inventory</h2>
                 {isLoading ? (
                     <div>Loading products...</div>
                 ) : isError ? (
@@ -84,17 +99,30 @@ const EditProducts = () => {
                                 <div className="flex-1">
                                     <div className="font-semibold text-lg">{product.name}</div>
                                     <div className="text-gray-600">Price: {product.price}</div>
-                                    <div className="text-gray-600">Stock: {product.countInStock}</div>
-                                    <div className="text-gray-600">Yearly Limit: {product.yearlyLimitPerUser}</div>
                                     <div className="text-gray-600">Category: {product.category}</div>
+                                    <div className="text-gray-600">Yearly Limit: {product.yearlyLimitPerUser}</div>
                                     <div className="text-gray-600">Description: {product.description}</div>
+                                    <div className="text-gray-800 font-bold mt-2">
+                                        {product.countInStock === null ? (
+                                            <span>Stock: <span className="text-green-600">Unlimited</span></span>
+                                        ) : (
+                                            <span>Current Stock: <span className={product.countInStock === 0 ? 'text-red-600' : 'text-blue-600'}>{product.countInStock}</span></span>
+                                        )}
+                                    </div>
                                 </div>
                                 <div>
                                     <button
-                                        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+                                        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition mr-2"
                                         onClick={() => handleEditClick(product)}
                                     >
                                         Edit
+                                    </button>
+                                    <button
+                                        className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+                                        onClick={() => handleDelete(product._id)}
+                                        disabled={deletingId === product._id}
+                                    >
+                                        {deletingId === product._id ? 'Deleting...' : 'Delete'}
                                     </button>
                                 </div>
                             </div>

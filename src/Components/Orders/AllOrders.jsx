@@ -77,10 +77,10 @@ const AllOrders = () => {
             </button>
             {isAdmin && (
               <Link
-                to="/edit-products"
+                to="/inventory"
                 className="bg-blue-600 px-8 border rounded-md text-white flex justify-center items-center h-12 hover:bg-blue-700 transition"
               >
-                Edit Products
+                Inventory
               </Link>
             )}
           </div>
