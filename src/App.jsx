@@ -16,6 +16,15 @@ import Profile from "./Components/Profile";
 import AdminRoute from "./Components/AdminRoute";
 import AllOrders from "./Components/Orders/AllOrders";
 import EditProducts from "./Components/Product/EditProducts";
+import DonationDistribution from "./Components/ImpactOutcomes/DonationDistribution";
+import OnlineSupportGroup from "./Components/ImpactOutcomes/OnlineSupportGroup";
+import OnlineWebinarSessions from "./Components/ImpactOutcomes/OnlineWebinarSessions";
+import PatientConsultationSupport from "./Components/ImpactOutcomes/PatientConsultationSupport";
+import PatientJourneyDocumentary from "./Components/ImpactOutcomes/PatientJourneyDocumentary";
+import PediatricTracheostomyCareBooklet from "./Components/ImpactOutcomes/PediatricTracheostomyCareBooklet";
+import PrivateConsultationBookingServices from "./Components/ImpactOutcomes/PrivateConsultationBookingServices";
+import ProBonoConsultingProject from "./Components/ImpactOutcomes/ProBonoConsultingProject";
+import Research from "./Components/ImpactOutcomes/Research";
 
 function App() {
   return (
@@ -31,6 +40,16 @@ function App() {
         <Route path="/addProduct" element={<AdminRoute><AddProduct /> </AdminRoute>} />
         <Route path="/productDetails/:id" element={<ProductDetails />} />
         <Route path="/inventory" element={<AdminRoute><EditProducts /></AdminRoute>} />
+        <Route path="/edit-products" element={<AdminRoute><EditProducts /></AdminRoute>} />
+        <Route path="/donation-distribution" element={<DonationDistribution />} />
+        <Route path="/online-support-group" element={<OnlineSupportGroup />} />
+        <Route path="/online-webinar-sessions" element={<OnlineWebinarSessions />} />
+        <Route path="/patient-consultation-support" element={<PatientConsultationSupport />} />
+        <Route path="/patient-journey-documentary" element={<PatientJourneyDocumentary />} />
+        <Route path="/pediatric-tracheostomy-care-booklet" element={<PediatricTracheostomyCareBooklet />} />
+        <Route path="/private-consultation-booking-services" element={<PrivateConsultationBookingServices />} />
+        <Route path="/pro-bono-consulting-project" element={<ProBonoConsultingProject />} />
+        <Route path="/research" element={<Research />} />
         {/* <Route path="/srecipes2" element={<PrivateRoute><RecipeList2 /></PrivateRoute>} /> */}
         <Route path="/cart" element={<PrivateRoute><CartPage /></PrivateRoute>} />
         <Route path="/billing" element={<PrivateRoute><Billing /></PrivateRoute>} />

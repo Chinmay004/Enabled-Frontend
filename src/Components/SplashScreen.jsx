@@ -53,7 +53,7 @@ const SplashScreen = ({ onComplete }) => {
     const [fadeOut, setFadeOut] = useState(false);
     const started = useRef(false); // 🛡️ guard against double effect
 
-    const fullText = 'ENABLED';
+    const fullText = 'ENABLED.';
     const typingSpeed = 100;
 
     useEffect(() => {

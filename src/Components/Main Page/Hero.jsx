@@ -97,7 +97,7 @@ const Hero = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             KUAT BERSAMA ENABLED.
           </h1>
-          <p className="text-sm sm:text-base text-justify p-4">
+          <p className="text-sm sm:text-base text-justify ">
             Enabled. is a non-profit foundation dedicated to supporting Indonesian pediatric tracheostomy patients through medical donations, advocacy, and heartfelt collaboration. Founded in memory of Amadea Jasmine Soetama, “The Tracheostomy Princess,” we work with families, doctors, and professionals to ensure every child receives the care they deserve. Through the redistribution of surplus supplies and community-driven support, we help these children not only survive—but thrive
           </p>
         </div>
@@ -110,8 +110,20 @@ const Hero = () => {
 
 
       {/* Featured Products */}
-      <section className="py-8 px-4 sm:px-6 md:px-10 lg:px-20">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+      <motion.section
+        className="py-8 px-4 sm:px-6 md:px-10 lg:px-20"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        <motion.div
+          className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-xl sm:text-2xl font-bold">Available Products</h2>
           <Link
             to="/products"
@@ -119,11 +131,24 @@ const Hero = () => {
           >
             View All
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredProducts.map((product) => (
-            <div key={product._id} className="flex flex-col gap-3">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          {featuredProducts.map((product, index) => (
+            <motion.div
+              key={product._id}
+              className="flex flex-col gap-3"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 * index }}
+              viewport={{ once: true }}
+            >
               <ProductCard {...product} />
               <AddToCartButton
                 userId={userId}
@@ -133,28 +158,57 @@ const Hero = () => {
                 showCounter={false}
                 widthClass="w-full"
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       {/* About Us */}
-      <section className='bg-[#fafafa]'>
-        <h2 className="text-xl sm:text-2xl font-bold mx-15 mt-15 w-fit  sm:place-self-center md:place-self-start">About Us</h2>
-        <div className="flex flex-col-reverse md:flex-row items-center gap-6 lg:gap-10 px-4 sm:px-6 md:px-10 lg:px-20 py-10 ">
-
-
-          <div className="md:w-1/2 text-justify">
-
-            <p className=" text-sm sm:text-base">
-              Enabled. was founded in November 2021, four months after our angel, Amadea Jasmine Soetama, moved to a better place. Since then, Enabled. has worked with people across disciplines—from doctors to border professionals—to ensure Indonesian pediatric tracheostomy patients receive the care they deserve. Thus, we named our foundation Yayasan Kuat Bersama Enabled.—KUAT as both a symbol of the strength of Indonesian pediatric tracheostomy children and an abbreviation of Kolaborasi Untuk Anak Trakeostomi. Through heartfelt collaboration, we help these children live life to the fullest. We focus donations on purchasing tracheostomy tubes and redistributing surplus medical supplies from families in privileged settings or those grieving a loss. Beyond this, we run various initiatives to support Indonesia’s broader special needs community. We believe these children fight with all they have to survive—now it’s our turn to give our all to help them thrive.
+      <motion.section
+        className='bg-[#fafafa]'
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        <motion.h2
+          className="text-xl sm:text-2xl font-bold mx-20 mt-15 w-fit sm:place-self-center md:place-self-start"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          About Us
+        </motion.h2>
+        <motion.div
+          className="flex flex-col-reverse md:flex-row items-center gap-6 lg:gap-10 px-4 sm:px-6 md:px-10 lg:px-20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="md:w-1/2 text-justify"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-sm sm:text-base">
+              Enabled. was founded in November 2021, four months after our angel, Amadea Jasmine Soetama, moved to a better place. Since then, Enabled. has worked with people across disciplines—from doctors to border professionals—to ensure Indonesian pediatric tracheostomy patients receive the care they deserve. Thus, we named our foundation Yayasan Kuat Bersama Enabled.—KUAT as both a symbol of the strength of Indonesian pediatric tracheostomy children and an abbreviation of Kolaborasi Untuk Anak Trakeostomi. Through heartfelt collaboration, we help these children live life to the fullest. We focus donations on purchasing tracheostomy tubes and redistributing surplus medical supplies from families in privileged settings or those grieving a loss. Beyond this, we run various initiatives to support Indonesia's broader special needs community. We believe these children fight with all they have to survive—now it's our turn to give our all to help them thrive.
             </p>
-          </div>
-          <div className="lg:w-1/2 flex justify-center">
+          </motion.div>
+          <motion.div
+            className="lg:w-1/2 flex justify-center"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
             <img src="/RealGirl.jpg" alt="About Us" className="w-full max-w-[350px] rounded shadow" />
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        </motion.div>
+      </motion.section>
 
       <Footer />
     </div>

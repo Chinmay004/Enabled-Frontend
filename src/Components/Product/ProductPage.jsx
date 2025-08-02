@@ -224,6 +224,7 @@ import React, { lazy, Suspense, useEffect, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { auth } from "../../lib/firebase";
 import { getProducts } from "../../api";
+import { motion } from "framer-motion";
 
 // Lazy-loaded components
 const Navbar = lazy(() => import("../Layout/Navbar"));
@@ -233,12 +234,17 @@ const AddToCartButton = lazy(() => import("../AddToCartButton"));
 
 // Skeleton Card Component
 const SkeletonCard = () => (
-  <div className="animate-pulse flex flex-col gap-3 p-4 rounded-xl shadow-sm">
+  <motion.div
+    className="animate-pulse flex flex-col gap-3 p-4 rounded-xl shadow-sm"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+  >
     <div className="bg-gray-300 h-40 w-full rounded-md" />
     <div className="bg-gray-300 h-4 w-3/4 rounded" />
     <div className="bg-gray-300 h-4 w-1/2 rounded" />
     <div className="bg-gray-300 h-10 w-full rounded-md mt-2" />
-  </div>
+  </motion.div>
 );
 
 const ProductsPage = () => {
@@ -276,13 +282,44 @@ const ProductsPage = () => {
   return (
     <Suspense fallback={<div className="text-center mt-10">Loading components...</div>}>
       <Navbar />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 m-20">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 m-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         {isLoading
-          ? Array.from({ length: 8 }).map((_, index) => <SkeletonCard key={index} />)
+          ? Array.from({ length: 8 }).map((_, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <SkeletonCard />
+            </motion.div>
+          ))
           : isError
-            ? <div className="text-red-500 text-center mt-10">{error?.message || "Failed to load products"}</div>
-            : products.map((product) => (
-              <div key={product._id} className="flex-col flex gap-3">
+            ? <motion.div
+              className="text-red-500 text-center mt-10 col-span-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {error?.message || "Failed to load products"}
+            </motion.div>
+            : products.map((product, index) => (
+              <motion.div
+                key={product._id}
+                className="flex-col flex gap-3"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  ease: "easeOut"
+                }}
+              >
                 <ProductCard {...product} countInStock={product.countInStock} />
                 {isHydrated && (
                   <AddToCartButton
@@ -295,9 +332,9 @@ const ProductsPage = () => {
                     countInStock={product.countInStock}
                   />
                 )}
-              </div>
+              </motion.div>
             ))}
-      </div>
+      </motion.div>
       <Footer />
     </Suspense>
   );
