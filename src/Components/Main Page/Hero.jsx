@@ -89,22 +89,32 @@ const Hero = () => {
 
       <motion.div
         className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#fafafa] px-4 sm:px-6 md:px-10 lg:px-20 lg:min-h-[calc(100vh-235px)] pt-10"
-        initial={{ x: '100%', opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 70, damping: 16 }}
       >
-        <div className="max-w-xl text-center lg:text-left mb-8 lg:mb-0">
+        <motion.div
+          className="max-w-xl text-center lg:text-left mb-8 lg:mb-0"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             KUAT BERSAMA ENABLED.
           </h1>
           <p className="text-sm sm:text-base text-justify ">
-            Enabled. is a non-profit foundation dedicated to supporting Indonesian pediatric tracheostomy patients through medical donations, advocacy, and heartfelt collaboration. Founded in memory of Amadea Jasmine Soetama, “The Tracheostomy Princess,” we work with families, doctors, and professionals to ensure every child receives the care they deserve. Through the redistribution of surplus supplies and community-driven support, we help these children not only survive—but thrive
+            Enabled. is a non-profit foundation dedicated to supporting Indonesian pediatric tracheostomy patients through medical donations, advocacy, and heartfelt collaboration. Founded in memory of Amadea Jasmine Soetama, "The Tracheostomy Princess," we work with families, doctors, and professionals to ensure every child receives the care they deserve. Through the redistribution of surplus supplies and community-driven support, we help these children not only survive—but thrive
           </p>
-        </div>
+        </motion.div>
 
-        <div className="w-full sm:w-[300px] md:w-[360px] lg:w-[600px] pb-10 lg:pb-0 xl:-mb-4">
+        <motion.div
+          className="w-full sm:w-[300px] md:w-[360px] lg:w-[600px] pb-10 lg:pb-0 xl:-mb-4"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           <img src="/Girly.png" alt="" className="w-full h-auto max-h-[300px] lg:max-h-[800px] object-contain" />
-        </div>
+        </motion.div>
       </motion.div>
 
 
@@ -189,19 +199,19 @@ const Hero = () => {
         >
           <motion.div
             className="md:w-1/2 text-justify"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm sm:text-base">
+            <p className="text-sm sm:text-base mb-10">
               Enabled. was founded in November 2021, four months after our angel, Amadea Jasmine Soetama, moved to a better place. Since then, Enabled. has worked with people across disciplines—from doctors to border professionals—to ensure Indonesian pediatric tracheostomy patients receive the care they deserve. Thus, we named our foundation Yayasan Kuat Bersama Enabled.—KUAT as both a symbol of the strength of Indonesian pediatric tracheostomy children and an abbreviation of Kolaborasi Untuk Anak Trakeostomi. Through heartfelt collaboration, we help these children live life to the fullest. We focus donations on purchasing tracheostomy tubes and redistributing surplus medical supplies from families in privileged settings or those grieving a loss. Beyond this, we run various initiatives to support Indonesia's broader special needs community. We believe these children fight with all they have to survive—now it's our turn to give our all to help them thrive.
             </p>
           </motion.div>
           <motion.div
             className="lg:w-1/2 flex justify-center"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
             viewport={{ once: true }}
           >
