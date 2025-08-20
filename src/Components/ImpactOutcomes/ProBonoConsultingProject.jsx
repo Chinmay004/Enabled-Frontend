@@ -9,6 +9,18 @@ const ProBonoConsultingProject = () => {
             <Navbar />
             <div className="flex-1 py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-6xl mx-auto">
+                    {/* Header Section with Client Description */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center mb-12"
+                    >
+                        <h1 className="text-4xl font-bold text-gray-800 mb-6">PRO BONO CONSULTING</h1>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                            Our client was Yayasan Sayap Ibu (Banten branch). We assigned 2 (two) interns who delivered tangible outcomes to solve the foundation's problems.
+                        </p>
+                    </motion.div>
 
                     {/* 4 Images Section - 2 per row */}
                     <div className="mb-12">
