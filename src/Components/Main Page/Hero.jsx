@@ -71,49 +71,52 @@ const Hero = () => {
 
 
       {/* Hero Section */}
-      {/* <div className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#fafafa] px-4 sm:px-6 md:px-10 lg:px-20 lg:min-h-[calc(100vh-235px)] pt-10 "> */}
-      {/* <div className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#fafafa] px-4 sm:px-6 md:px-10 lg:px-20 lg:min-h-[calc(100vh-235px)] pt-10 animate-slide-in-up">
-
-        <div className="max-w-xl  text-center lg:text-left mb-8 lg:mb-0  ">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            KUAT BERSAMA ENABLED.
-          </h1>
-          <p className="  text-sm sm:text-base text-justify p-4 ">
-            Enabled. is a non-profit foundation dedicated to supporting Indonesian pediatric tracheostomy patients through medical donations, advocacy, and heartfelt collaboration. Founded in memory of Amadea Jasmine Soetama, “The Tracheostomy Princess,” we work with families, doctors, and professionals to ensure every child receives the care they deserve. Through the redistribution of surplus supplies and community-driven support, we help these children not only survive—but thrive
-          </p>
-        </div>
-        <div className="w-full sm:w-[300px] md:w-[360px] lg:w-[600px]  pb-10 lg:pb-0 xl:-mb-4 ">
-          <img src="/Girly.png" alt="" className="w-full h-auto max-h-[300px] lg:max-h-[800px] object-contain" />
-        </div>
-      </div> */}
-
       <motion.div
-        className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#fafafa] px-4 sm:px-6 md:px-10 lg:px-20 lg:min-h-[calc(100vh-235px)] pt-10"
+        className="flex flex-col-reverse lg:flex-row items-center justify-between bg-white px-4 sm:px-6 md:px-10 lg:px-20 lg:min-h-[calc(100vh-235px)] pt-10"
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 70, damping: 16 }}
       >
+        {/* Left Side - Cartoon Child Illustration */}
         <motion.div
-          className="max-w-xl text-center lg:text-left mb-8 lg:mb-0"
+          className="w-full lg:w-1/2 flex justify-center lg:justify-start mb-8 lg:mb-0"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            KUAT BERSAMA ENABLED.
-          </h1>
-          <p className="text-sm sm:text-base text-justify ">
-            Enabled. is a non-profit foundation dedicated to supporting Indonesian pediatric tracheostomy patients through medical donations, advocacy, and heartfelt collaboration. Founded in memory of Amadea Jasmine Soetama, "The Tracheostomy Princess," we work with families, doctors, and professionals to ensure every child receives the care they deserve. Through the redistribution of surplus supplies and community-driven support, we help these children not only survive—but thrive
-          </p>
+          <div className="w-full sm:w-[300px] md:w-[360px] lg:w-[600px] pb-10 lg:pb-0 xl:-mb-4">
+            <img src="/Girly.png" alt="" className="w-full h-auto max-h-[300px] lg:max-h-[800px] object-contain" />
+          </div>
         </motion.div>
 
+        {/* Right Side - Enabled. Branding and Description */}
         <motion.div
-          className="w-full sm:w-[300px] md:w-[360px] lg:w-[600px] pb-10 lg:pb-0 xl:-mb-4"
+          className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <img src="/Girly.png" alt="" className="w-full h-auto max-h-[300px] lg:max-h-[800px] object-contain" />
+          {/* Small Red Square with "Enabled."
+          <div className="flex justify-center lg:justify-end mb-6">
+            <div className="bg-red-600 text-white px-3 py-1 rounded text-sm font-semibold">
+              Enabled.
+            </div>
+          </div> */}
+
+          {/* Main Brand Name */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-red-600">
+            Enabled.
+          </h1>
+
+          {/* Description */}
+          <p className="text-lg sm:text-xl text-gray-800 mb-4 leading-relaxed font-bold">
+            Indonesia-based community support platform for special needs children's parents and bereaved parents
+          </p>
+
+          {/* Since Date */}
+          <p className="text-base text-gray-600">
+            Since November 2021
+          </p>
         </motion.div>
       </motion.div>
 
@@ -215,7 +218,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            <img src="/RealGirl.jpg" alt="About Us" className="w-full max-w-[350px] rounded shadow" />
+            <img src="/RealGirl.jpg" alt="About Us" className="w-full max-w-[350px] rounded shadow  mb-15" />
           </motion.div>
         </motion.div>
       </motion.section>

@@ -9,161 +9,88 @@ const ProBonoConsultingProject = () => {
             <Navbar />
             <div className="flex-1 py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-6xl mx-auto">
-                    {/* Header Section */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-12"
-                    >
-                        <h1 className="text-4xl font-bold text-gray-800 mb-6">PRO BONO CONSULTING</h1>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Our client was Yayasan Sayap Ibu (Banten branch). We assigned 2 (two) interns who delivered tangible outcomes to solve the foundation's problems.
-                        </p>
-                    </motion.div>
 
-                    {/* Projects Grid */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"
-                    >
-                        {/* Proposal for Addressing Caregiver Turnover Issue */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            className="bg-white rounded-lg shadow-lg p-6"
-                        >
-                            <h2 className="text-2xl font-semibold text-gray-800 mb-4">PROPOSAL FOR ADDRESSING CAREGIVER TURNOVER ISSUE</h2>
-                            {/* <div className="bg-gray-100 rounded-lg p-4 mb-4">
-                                <div className="w-full h-48 bg-gray-200 rounded flex items-center justify-center">
+                    {/* 4 Images Section - 2 per row */}
+                    <div className="mb-12">
+                        {/* First Row - 2 Images */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div className="bg-white rounded-lg shadow-lg p-4">
+                                <img
+                                    src="/probono/Picture1.png"
+                                    alt="Pro Bono Consulting Image 1"
+                                    className="w-full h-fit object-contain rounded-lg"
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.nextSibling.style.display = 'flex';
+                                    }}
+                                />
+                                <div className="w-full h-48 bg-gray-200 rounded-lg flex items-center justify-center hidden">
                                     <svg className="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
                                 </div>
-                                <p className="text-sm text-gray-600 mt-2 text-center">Group meeting photo - Team collaboration session</p>
-                            </div> */}
-                            <p className="text-gray-600">
-                                Comprehensive proposal addressing the critical issue of caregiver turnover in special needs facilities,
-                                providing sustainable solutions for staff retention and quality care maintenance.
-                            </p>
-                        </motion.div>
+                                {/* <p className="text-sm text-gray-600 mt-2 text-center">Image 1 Description</p> */}
+                            </div>
 
-                        {/* Special Needs Children's Sex Education Webinar */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="bg-white rounded-lg shadow-lg p-6"
-                        >
-                            <h2 className="text-2xl font-semibold text-gray-800 mb-4">SPECIAL NEEDS CHILDREN'S SEX EDUCATION WEBINAR FOR CAREGIVERS</h2>
-                            {/* <div className="bg-gray-100 rounded-lg p-4 mb-4">
-                                <div className="w-full h-48 bg-gray-200 rounded flex items-center justify-center">
+                            <div className="bg-white rounded-lg shadow-lg p-4">
+                                <img
+                                    src="/probono/Picture2.png"
+                                    alt="Pro Bono Consulting Image 2"
+                                    className="w-full h-fit object-contain rounded-lg"
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.nextSibling.style.display = 'flex';
+                                    }}
+                                />
+                                <div className="w-full h-48 bg-gray-200 rounded-lg flex items-center justify-center hidden">
                                     <svg className="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
                                 </div>
-                                <p className="text-sm text-gray-600 mt-2 text-center">Webinar screenshot - "Garis Besar Sex Ed for Special Needs"</p>
-                            </div> */}
-                            <p className="text-gray-600">
-                                Educational webinar providing caregivers with essential knowledge and tools for addressing
-                                sex education needs of children with special needs in an appropriate and supportive manner.
-                            </p>
-                        </motion.div>
-                    </motion.div>
-
-                    {/* Assessment Tools Section */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
-                        className="mb-12"
-                    >
-                        <h2 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
-                            ACTIVITY OF DAILY LIVING ASSESSMENT (ADL) AND STRENGTH AND DIFFICULTIES QUESTIONNAIRE (SDQ) TO OPTIMIZE THE ASSESSMENT OF SPECIAL NEEDS CHILDREN'S DEVELOPMENTAL MILESTONES
-                        </h2>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                            {/* ADL Assessment */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.6 }}
-                                className="bg-yellow-50 rounded-lg p-6 border-l-4 border-yellow-400"
-                            >
-                                <h3 className="text-xl font-semibold text-gray-800 mb-4 bg-red-600 text-white px-4 py-2 rounded">
-                                    ASESMEN KEMANDIRIAN ANAK (Child Independence Assessment)
-                                </h3>
-                                <div className="space-y-3 text-gray-700">
-                                    <p>
-                                        <strong>Guidelines for measuring independence in children with Autism Spectrum Disorder.</strong>
-                                        The program aims to help children achieve daily independence.
-                                    </p>
-                                    <p>
-                                        <strong>Reference:</strong> Activity of Daily Living (ADL) assessment from 2012
-                                    </p>
-                                    <div>
-                                        <strong>Five indicators of independence:</strong>
-                                        <ul className="list-disc list-inside mt-2 space-y-1">
-                                            <li>Eating and drinking</li>
-                                            <li>Dressing</li>
-                                            <li>Toiletries</li>
-                                            <li>Cleanliness</li>
-                                            <li>Home and community activities</li>
-                                        </ul>
-                                    </div>
-                                    <p className="text-sm italic">
-                                        <strong>Instructions for caregivers/observers:</strong> Complete assessment based on daily observations
-                                        of the child's independent living skills and capabilities.
-                                    </p>
-                                </div>
-                            </motion.div>
-
-                            {/* SDQ Assessment */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.7 }}
-                                className="bg-green-50 rounded-lg p-6 border-l-4 border-green-400"
-                            >
-                                <h3 className="text-xl font-semibold text-gray-800 mb-4 bg-red-600 text-white px-4 py-2 rounded">
-                                    STRENGTH AND DIFFICULTIES QUESTIONNAIRE (SDQ)
-                                </h3>
-                                <div className="space-y-3 text-gray-700">
-                                    <p>
-                                        <strong>25-item questionnaire</strong> measuring:
-                                    </p>
-                                    <ul className="list-disc list-inside space-y-1">
-                                        <li>Emotional symptoms</li>
-                                        <li>Conduct problems</li>
-                                        <li>Hyperactivity</li>
-                                        <li>Peer problems</li>
-                                    </ul>
-                                    <p>
-                                        <strong>Completion time:</strong> About 5 minutes<br />
-                                        <strong>Applicable to:</strong> Children with Autism Spectrum Disorder and independent children
-                                    </p>
-                                    <div>
-                                        <strong>Rating scale:</strong>
-                                        <ul className="list-disc list-inside mt-2 space-y-1">
-                                            <li>TIDAK BENAR (Not True) - Score: 0</li>
-                                            <li>AGAK BENAR (Somewhat True) - Score: 1</li>
-                                            <li>BENAR (True) - Score: 2</li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <strong>Score interpretation:</strong>
-                                        <ul className="list-disc list-inside mt-2 space-y-1">
-                                            <li>Normal: 0-13</li>
-                                            <li>Border: 14-16</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </motion.div>
+                                {/* <p className="text-sm text-gray-600 mt-2 text-center">Image 2 Description</p> */}
+                            </div>
                         </div>
-                    </motion.div>
+
+                        {/* Second Row - 2 Images */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="bg-white rounded-lg shadow-lg p-4">
+                                <img
+                                    src="/probono/Picture3.png"
+                                    alt="Pro Bono Consulting Image 3"
+                                    className="w-full h-fit object-contain rounded-lg"
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.nextSibling.style.display = 'flex';
+                                    }}
+                                />
+                                <div className="w-full h-48 bg-gray-200 rounded-lg flex items-center justify-center hidden">
+                                    <svg className="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                {/* <p className="text-sm text-gray-600 mt-2 text-center">Image 3 Description</p> */}
+                            </div>
+
+                            <div className="bg-white rounded-lg shadow-lg p-4">
+                                <img
+                                    src="/probono/Picture4.png"
+                                    alt="Pro Bono Consulting Image 4"
+                                    className="w-full h-fit object-contain rounded-lg"
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.nextSibling.style.display = 'flex';
+                                    }}
+                                />
+                                <div className="w-full h-48 bg-gray-200 rounded-lg flex items-center justify-center hidden">
+                                    <svg className="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                {/* <p className="text-sm text-gray-600 mt-2 text-center">Image 4 Description</p> */}
+                            </div>
+                        </div>
+                    </div>
+
 
                     {/* Impact Summary */}
                     <motion.div
