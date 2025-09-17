@@ -13,39 +13,39 @@ const OnlineWebinarSessions = () => {
         },
         {
             id: 2,
-            title: "Advanced Care Techniques",
+            title: "Swallowing Disorders & Pediatric  Emergencies",
             videoId: "L3B3N0Ig_Kg",
-            description: "Advanced methods and specialized care approaches for complex cases."
+            description: "A discussion on the phases of swallowing disorders and emergency cases in pediatric tracheostomy patients "
         },
         {
             id: 3,
-            title: "Family Support and Education",
+            title: "Aspiration & Decannulation in Pediatric Tracheostomy Patients",
             videoId: "AyaWMLDIs4s",
-            description: "Supporting families through education and practical guidance."
+            description: " Addressing the critical questions of aspiration and the signs that indicate when children are ready for decannulation "
         },
         {
             id: 4,
-            title: "Emergency Response Protocols",
+            title: "The Importance of Mental Health for Parents of Children with Special Needs",
             videoId: "Nc677AcyslA",
-            description: "Critical emergency procedures and response protocols for tracheostomy care."
+            description: "Discussion on how parents can navigate their mental health while raising children with special needs "
         },
         {
             id: 5,
-            title: "Daily Care Routines",
+            title: "Medical Rehabilitation for Pediatric Tracheostomy Patients",
             videoId: "ZD_BYqDRCfY",
-            description: "Establishing effective daily care routines for optimal patient outcomes."
+            description: " Exploring the Role of Medical Rehabilitation in Supporting Pediatric Tracheostomy Patients "
         },
         {
             id: 6,
-            title: "Equipment Management",
+            title: "“Medical Interventions for Patients with Pierre Robin Sequence (PRS) and Pediatric Tracheostomy",
             videoId: "3uQKwuw7xwo",
-            description: "Proper maintenance and management of tracheostomy equipment."
+            description: "Discussion on treatment approaches for Pierre Robin Sequence and their impact on the pediatric tracheostomy journey "
         },
         {
             id: 7,
-            title: "Community Support Networks",
+            title: "Q&A Session: Drooling Procedure",
             videoId: "e3C-2s-w0ng",
-            description: "Building and maintaining support networks for families and caregivers."
+            description: " The description: Discussion on how drooling management procedures can address challenges in pediatric tracheostomy patients"
         }
     ];
 

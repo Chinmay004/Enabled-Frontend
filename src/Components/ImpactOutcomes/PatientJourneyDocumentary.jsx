@@ -7,27 +7,27 @@ const PatientJourneyDocumentary = () => {
     const documentaries = [
         {
             id: 1,
-            title: "A Family's Journey with Tracheostomy",
+            title: "Love for Faustine: An Angel with Angelman Syndrome",
             videoId: "zpQ_pIgrnOE",
-            description: "Follow the emotional and practical journey of a family adapting to life with a pediatric tracheostomy."
+            description: "Follow Ibu Rani’s journey in raising Faustine, an angel with Angelman Syndrome"
         },
         {
             id: 2,
-            title: "Caregiver Perspectives",
+            title: "Mata Hati Koffie Journey: Life Beyond Limits",
             videoId: "ITLPGQhNZt8",
-            description: "Hear from dedicated caregivers about their experiences and the challenges they face daily."
+            description: "Follow Ibu Hikmah and Hilmy’s journey in growing Mata Hati Koffie, a business where patrons are served by visually impaired employees "
         },
         {
             id: 3,
-            title: "Medical Team Insights",
+            title: "The Dark Side of The Indonesian Healthcare System",
             videoId: "SxJHtrpjN3Y",
-            description: "Medical professionals share their expertise and the collaborative approach to tracheostomy care."
+            description: " A documentary revealing the unspoken struggles of those impacted by Indonesia’s healthcare system"
         },
         {
             id: 4,
-            title: "Community Support Stories",
+            title: "Little Aufa, Big Heart of Ibu Nurul",
             videoId: "I8zTqOVET1I",
-            description: "Discover how community support networks make a difference in the lives of tracheostomy families."
+            description: " A story of love from Ibu Nurul and her family, who never gave up on one another "
         }
     ];
 
@@ -44,9 +44,7 @@ const PatientJourneyDocumentary = () => {
                     >
                         <h1 className="text-4xl font-bold text-gray-800 mb-6">Patient Journey Documentary</h1>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Our documentary series captures the real stories of families, caregivers, and medical
-                            professionals navigating the challenges and triumphs of pediatric tracheostomy care.
-                            These authentic narratives provide hope, guidance, and community for those on similar journeys.
+                            Our documentary series captures the real stories of families navigating the challenges and triumphs of raising family members with special needs. These authentic narratives provide hope, guidance, and community for those on similar journeys
                         </p>
                     </motion.div>
 
@@ -101,7 +99,7 @@ const PatientJourneyDocumentary = () => {
                             </p>
                         </div>
 
-                        <div className="bg-white rounded-lg shadow-lg p-6">
+                        {/* <div className="bg-white rounded-lg shadow-lg p-6">
                             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -112,7 +110,7 @@ const PatientJourneyDocumentary = () => {
                                 Medical professionals and specialists share their expertise, providing valuable
                                 knowledge and practical guidance for optimal care outcomes.
                             </p>
-                        </div>
+                        </div> */}
 
                         <div className="bg-white rounded-lg shadow-lg p-6">
                             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -178,7 +176,7 @@ const PatientJourneyDocumentary = () => {
                         </div>
                     </motion.div> */}
 
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.8 }}
@@ -199,7 +197,7 @@ const PatientJourneyDocumentary = () => {
                                 <p className="text-gray-600">Views across all documentary episodes</p>
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.div> */}
                 </div>
             </div>
             <Footer />

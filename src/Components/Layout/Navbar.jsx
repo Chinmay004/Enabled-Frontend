@@ -42,7 +42,7 @@ const Navbar = () => {
     { name: "Patient Consultation Support", path: "/patient-consultation-support" },
     { name: "Patient Journey Documentary", path: "/patient-journey-documentary" },
     { name: "Pediatric Tracheostomy Care Booklet", path: "/pediatric-tracheostomy-care-booklet" },
-    { name: "Private Consultation Booking Services", path: "/private-consultation-booking-services" },
+    // { name: "Private Consultation Booking Services", path: "/private-consultation-booking-services" },
     { name: "Pro Bono Consulting Project", path: "/pro-bono-consulting-project" },
     { name: "Research", path: "/research" }
   ];

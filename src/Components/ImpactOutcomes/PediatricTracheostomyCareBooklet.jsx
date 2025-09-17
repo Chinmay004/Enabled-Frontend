@@ -41,10 +41,9 @@ const PediatricTracheostomyCareBooklet = () => {
                             <div className="flex-1">
                                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">Patient Journey Documentary</h2>
                                 <div className="mb-6">
-                                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Download Documentary</h3>
+                                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Download Booklet</h3>
                                     <p className="text-gray-600 mb-4">
-                                        Download our comprehensive Patient Journey Documentary in your preferred language.
-                                        These authentic narratives provide hope, guidance, and community for those on similar journeys.
+                                        Download our comprehensive Pediatric Tracheostomy Care Booklet in your preferred language. This booklet is a collection of contributions from parents of pediatric tracheostomy patients in Indonesia.
                                     </p>
                                     <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-4 mb-4">
                                         <h4 className="font-semibold text-gray-800 mb-2">Documentary Features:</h4>
@@ -63,8 +62,7 @@ const PediatricTracheostomyCareBooklet = () => {
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                         onClick={() => handleDownload(
-                                            'https://drive.google.com/file/d/1MVEs__-JL4261SDKA2eiVG3ff13b42Jx/view?usp=sharing',
-                                            'Patient_Journey_Documentary_Bahasa.pdf'
+                                            'https://drive.google.com/file/d/1fki4VPle0TFH1Ay5qD5_Kz6XueGG4jk3/view?usp=drive_link'
                                         )}
                                         className="w-full bg-purple-600 text-white px-4 py-3 rounded-lg hover:bg-purple-700 transition-colors duration-200 font-semibold flex items-center justify-center space-x-2"
                                     >
@@ -78,7 +76,7 @@ const PediatricTracheostomyCareBooklet = () => {
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                         onClick={() => handleDownload(
-                                            'https://drive.google.com/file/d/1OyLnZk87pkRexPqNB0Am42ePImMa_W-i/view?usp=sharing',
+                                            'https://drive.google.com/file/d/15FAWKsMeEqupiKld2yBswsfv02xJeRh1/view?usp=drive_link',
                                             'Patient_Journey_Documentary_English.pdf'
                                         )}
                                         className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold flex items-center justify-center space-x-2"
@@ -103,8 +101,9 @@ const PediatricTracheostomyCareBooklet = () => {
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-800">Daily Care Routines</h3>
-                                            <p className="text-gray-600 text-sm">Step-by-step instructions for daily tracheostomy care</p>
+                                            <h3 className="font-semibold text-gray-800">List of necessary medical supplies and equipment </h3>
+                                            <p className="text-gray-600 text-sm">A complete inventory of essential items required for pediatric
+                                                tracheostomy care. </p>
                                         </div>
                                     </div>
                                     <div className="flex items-start">
@@ -114,8 +113,9 @@ const PediatricTracheostomyCareBooklet = () => {
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-800">Emergency Procedures</h3>
-                                            <p className="text-gray-600 text-sm">Critical emergency response protocols and procedures</p>
+                                            <h3 className="font-semibold text-gray-800">Instructions for pediatric tracheostomy care training </h3>
+                                            <p className="text-gray-600 text-sm">Step-by-step guidance for safely performing and managing
+                                                tracheostomy care.</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start">
@@ -125,8 +125,10 @@ const PediatricTracheostomyCareBooklet = () => {
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-800">Equipment Management</h3>
-                                            <p className="text-gray-600 text-sm">Proper maintenance and care of tracheostomy equipment</p>
+                                            <h3 className="font-semibold text-gray-800">List of must-watch videos for Indonesian pediatric tracheostomy
+                                                patient parents </h3>
+                                            <p className="text-gray-600 text-sm">Curated educational videos to support parents in caring for their
+                                                children. </p>
                                         </div>
                                     </div>
                                     <div className="flex items-start">
@@ -136,8 +138,8 @@ const PediatricTracheostomyCareBooklet = () => {
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-800">Family Support Resources</h3>
-                                            <p className="text-gray-600 text-sm">Guidance for families and caregivers</p>
+                                            <h3 className="font-semibold text-gray-800">List of necessary contacts  </h3>
+                                            <p className="text-gray-600 text-sm">Important support resources to reach when needed.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +154,7 @@ const PediatricTracheostomyCareBooklet = () => {
                         className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 mb-12"
                     >
                         <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Why Our Booklet Matters</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="text-center">
                                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,7 +164,7 @@ const PediatricTracheostomyCareBooklet = () => {
                                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Comprehensive Guide</h3>
                                 <p className="text-gray-600">All-in-one resource covering every aspect of tracheostomy care</p>
                             </div>
-                            <div className="text-center">
+                            {/* <div className="text-center">
                                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -170,7 +172,7 @@ const PediatricTracheostomyCareBooklet = () => {
                                 </div>
                                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Expert-Reviewed</h3>
                                 <p className="text-gray-600">Content verified by medical professionals and experienced caregivers</p>
-                            </div>
+                            </div> */}
                             <div className="text-center">
                                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

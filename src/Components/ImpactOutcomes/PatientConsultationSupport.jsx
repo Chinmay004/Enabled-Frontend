@@ -89,7 +89,7 @@ const PatientConsultationSupport = () => {
                                         <p className="text-gray-600 text-sm">Facilitating communication between families and medical teams</p>
                                     </div>
                                 </div>
-                                <div className="flex items-start">
+                                {/* <div className="flex items-start">
                                     <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-1">
                                         <svg className="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -99,7 +99,7 @@ const PatientConsultationSupport = () => {
                                         <h3 className="font-semibold text-gray-800">Emergency Preparedness</h3>
                                         <p className="text-gray-600 text-sm">Training for emergency situations and crisis management</p>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
@@ -132,7 +132,7 @@ const PatientConsultationSupport = () => {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="mb-12"
                     >
-                        <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Recent Consultation Sessions</h2>
+                        <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center"> Consultation Sessions</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {consultations.map((consultation, index) => (
                                 <motion.div
@@ -310,7 +310,7 @@ const PatientConsultationSupport = () => {
                                     your first session and begin your journey toward better care.
                                 </p>
                                 <a
-                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfLsRQ1yzv6vdnDiXdTK-_zhYWJ0LBloTSjuD96AB3g9Bammw/viewform"
+                                    href="https://wa.me/6287784629666"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors duration-200 font-semibold inline-block"

@@ -68,7 +68,7 @@ const OnlineSupportGroup = () => {
                             <p className="text-gray-600 text-center">
                                 Each participant receives a thoughtfully designed grief journal with prompts
                                 tailored to different stages of grief, spaces for free writing, and exercises
-                                for grounding and mindfulness. It serves as a private outlet and progress tracker.
+                                for grounding and mindfulness.
                             </p>
                         </div>
                     </motion.div>
@@ -82,7 +82,7 @@ const OnlineSupportGroup = () => {
                         <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Participant Reviews</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="bg-white rounded-lg shadow-lg p-6">
-                                <h3 className="text-lg font-semibold text-gray-800 mb-4">Recent Feedback</h3>
+                                {/* <h3 className="text-lg font-semibold text-gray-800 mb-4">Recent Feedback</h3> */}
                                 <div className="flex justify-center">
                                     <iframe
                                         src="https://www.instagram.com/p/C7yHrW4SSl2/embed"
@@ -96,7 +96,7 @@ const OnlineSupportGroup = () => {
                                 </div>
                             </div>
                             <div className="bg-white rounded-lg shadow-lg p-6">
-                                <h3 className="text-lg font-semibold text-gray-800 mb-4">Previous Session</h3>
+                                {/* <h3 className="text-lg font-semibold text-gray-800 mb-4">Previous Session</h3> */}
                                 <div className="flex justify-center">
                                     <iframe
                                         src="https://www.instagram.com/p/CZ1elY2v8YA/embed"
@@ -155,9 +155,14 @@ const OnlineSupportGroup = () => {
                                     Ready to begin your healing journey? Contact us to learn more about
                                     upcoming sessions and how to register.
                                 </p>
-                                <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold">
+                                <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfLsRQ1yzv6vdnDiXdTK-_zhYWJ0LBloTSjuD96AB3g9Bammw/viewform"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold"
+                                >
                                     Get Started Today
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </motion.div>
