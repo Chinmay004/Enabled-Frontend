@@ -60,7 +60,7 @@ const Footer = () => {
         {/* Right Section */}
         <div className="flex items-center justify-center">
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfLsRQ1yzv6vdnDiXdTK-_zhYWJ0LBloTSjuD96AB3g9Bammw/viewform"
+            href="https://wa.me/628778462966"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-red-600 px-5 py-2 rounded-full font-medium hover:bg-red-500 hover:text-white transition inline-block"
@@ -72,9 +72,9 @@ const Footer = () => {
       </div>
 
       {/* Bottom */}
-      <div className="mt-10 text-center text-sm opacity-75">
+      {/* <div className="mt-10 text-center text-sm opacity-75">
         © 2021 — Novation Med All Rights Reserved
-      </div>
+      </div> */}
     </footer>
 
   )

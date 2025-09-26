@@ -86,7 +86,7 @@ const PatientJourneyDocumentary = () => {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12"
                     >
-                        <div className="bg-white rounded-lg shadow-lg p-6">
+                        {/* <div className="bg-white rounded-lg shadow-lg p-6">
                             <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -97,7 +97,7 @@ const PatientJourneyDocumentary = () => {
                                 Authentic narratives from families who have walked this path, sharing their
                                 experiences, challenges, and victories to inspire and guide others.
                             </p>
-                        </div>
+                        </div> */}
 
                         {/* <div className="bg-white rounded-lg shadow-lg p-6">
                             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -112,7 +112,7 @@ const PatientJourneyDocumentary = () => {
                             </p>
                         </div> */}
 
-                        <div className="bg-white rounded-lg shadow-lg p-6">
+                        {/* <div className="bg-white rounded-lg shadow-lg p-6">
                             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -123,7 +123,7 @@ const PatientJourneyDocumentary = () => {
                                 Stories of how community networks, support groups, and collaborative efforts
                                 create stronger, more resilient families and caregivers.
                             </p>
-                        </div>
+                        </div> */}
                     </motion.div>
 
                     {/* <motion.div

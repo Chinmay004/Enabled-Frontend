@@ -50,7 +50,7 @@ const Research = () => {
                         className="text-center mb-12"
                     >
                         <h1 className="text-4xl font-bold text-gray-800 mb-6">Research & Publications</h1>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-lg text-gray-600 max-w-4xl mx-auto">
                             Our research focuses on understanding the challenges faced by
                             parents of children with disabilities and rare diseases, examining stress levels, social
                             support, and coping strategies. Through these insights, we aim to inform interventions
@@ -86,7 +86,7 @@ const Research = () => {
                                         <p className="text-gray-600 text-sm mb-4">
                                             <span className="font-medium">Year:</span> {publication.year}
                                         </p>
-                                        <p className="text-gray-600 text-sm mb-6">{publication.description}</p>
+                                        <p className="text-gray-600 text-sm mb-6 text-justify">{publication.description}</p>
                                     </div>
                                     <div className="mt-auto">
                                         <motion.button

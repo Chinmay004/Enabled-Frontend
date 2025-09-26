@@ -37,7 +37,7 @@ const OnlineWebinarSessions = () => {
         },
         {
             id: 6,
-            title: "“Medical Interventions for Patients with Pierre Robin Sequence (PRS) and Pediatric Tracheostomy",
+            title: "Medical Interventions for Patients with Pierre Robin Sequence (PRS) and Pediatric Tracheostomy",
             videoId: "3uQKwuw7xwo",
             description: "Discussion on treatment approaches for Pierre Robin Sequence and their impact on the pediatric tracheostomy journey "
         },
@@ -94,7 +94,7 @@ const OnlineWebinarSessions = () => {
                                 </div>
                                 <div className="p-6">
                                     <h3 className="text-lg font-semibold text-gray-800 mb-2">{webinar.title}</h3>
-                                    <p className="text-gray-600 text-sm">{webinar.description}</p>
+                                    <p className="text-gray-600 text-sm text-justify">{webinar.description}</p>
                                 </div>
                             </motion.div>
                         ))}

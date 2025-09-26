@@ -40,7 +40,7 @@ const PatientConsultationSupport = () => {
                         className="text-center mb-12"
                     >
                         <h1 className="text-4xl font-bold text-gray-800 mb-6">Patient Consultation Support</h1>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-lg text-gray-600 max-w-4xl mx-auto">
                             Our consultation support services provide personalized guidance and expert advice
                             for families and caregivers of pediatric tracheostomy patients, ensuring the best
                             possible care and outcomes.
@@ -86,7 +86,7 @@ const PatientConsultationSupport = () => {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-gray-800">Medical Coordination</h3>
-                                        <p className="text-gray-600 text-sm">Facilitating communication between families and medical teams</p>
+                                        <p className="text-gray-600 text-sm">We facilitate communication between families and medical teams</p>
                                     </div>
                                 </div>
                                 {/* <div className="flex items-start">
