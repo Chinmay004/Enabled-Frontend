@@ -23,7 +23,7 @@ const Footer = () => {
           <h1 className="text-3xl font-bold mb-5">Enabled.</h1>
 
           <p className="mt-4 text-sm">+62877-8462-9666</p>
-          <p className="text-sm">info@novation-med.ru</p>
+          {/* <p className="text-sm">info@novation-med.ru</p> */}
         </div>
 
         {/* Middle Section */}

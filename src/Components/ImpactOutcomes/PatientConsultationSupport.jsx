@@ -86,7 +86,7 @@ const PatientConsultationSupport = () => {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-gray-800">Medical Coordination</h3>
-                                        <p className="text-gray-600 text-sm">We facilitate communication between families and medical teams</p>
+                                        <p className="text-gray-600 text-sm">Facilitation of communication between families and medical teams</p>
                                     </div>
                                 </div>
                                 {/* <div className="flex items-start">
