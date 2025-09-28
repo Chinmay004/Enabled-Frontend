@@ -124,7 +124,7 @@ const OnlineWebinarSessions = () => {
                                     </svg>
                                 </div>
                                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Practical Guidance</h3>
-                                <p className="text-gray-600">Step-by-step instructions and real-world applications</p>
+                                <p className="text-gray-600">Receive step-by-step instructions and real-world applications</p>
                             </div>
                             <div className="text-center">
                                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
