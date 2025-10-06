@@ -21,9 +21,8 @@ const Footer = () => {
         {/* Left Section */}
         <div>
           <h1 className="text-3xl font-bold mb-5">Enabled.</h1>
-
-          <p className="mt-4 text-sm">+62877-8462-9666</p>
-          {/* <p className="text-sm">info@novation-med.ru</p> */}
+          <p className="text-sm">+6285778737390 <span>(Founder - Tia)</span></p>
+          <p className="mt-4 text-sm">+62877-8462-9666 <span>(Co-founder - Via)</span></p>
         </div>
 
         {/* Middle Section */}
