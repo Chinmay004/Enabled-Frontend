@@ -22,7 +22,7 @@ const Footer = () => {
         <div>
           <h1 className="text-3xl font-bold mb-5">Enabled.</h1>
           <p className="text-sm">+6285778737390 <span>(Founder - Tia)</span></p>
-          <p className="mt-4 text-sm">+62877-8462-9666 <span>(Co-founder - Via)</span></p>
+          <p className="mt-4 text-sm">+62877-8462-9666 <span>(Co-Founder - Via)</span></p>
         </div>
 
         {/* Middle Section */}
@@ -59,7 +59,7 @@ const Footer = () => {
         {/* Right Section */}
         <div className="flex items-center justify-center">
           <a
-            href="https://wa.me/628778462966"
+            href="https://wa.me/6287784629666"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-red-600 px-5 py-2 rounded-full font-medium hover:bg-red-500 hover:text-white transition inline-block"
